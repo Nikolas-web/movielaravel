@@ -18,7 +18,7 @@
             <img src="{{ $movie->image }}" class="card-image-top">
             <div class="card-body">
                 <div class="text-danger">
-                <h3><a href="{{ route('movies.show', $movie->id) }}">{{ $movie->title }}</a></h3>
+                <h3><a href="{{ route('movies.show', $movie->id) }}" class="btn btn-primary btn-sm">{{ $movie->title }}</a></h3>
                 @for ($i = 1; $i <= $movie->rating_star; $i++)
                 <i class="fas fa-star"></i>
                 @endfor                  

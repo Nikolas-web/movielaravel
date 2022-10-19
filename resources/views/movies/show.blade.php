@@ -11,8 +11,8 @@
               @endfor
         </div>
             <p>{{ $movie->description }}</p>
-
-            <h3>Cast
+            
+            <h3>Tokoh Cerita
               @auth
               <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="fas fa-plus"></i>
@@ -29,17 +29,17 @@
                     <form action="{{ route('movie_cast_destroy', [$movie->id, $cast->id]) }}" method="post">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn btn-link text-danger">Delete</button>
+                        <button type="submit" class="btn btn-link text-danger" class="btn btn-primary btn-sm">Delete</button>
                     </form>
                 @endauth
               </li>
               @endforeach
               @else
-                  dorong tak tambahno
+                  no casts.
               @endif
               </ul>
 
-              <h3>Comments</h3>
+              <h3>Komentar</h3>
               <ul class="list-group list-group-flush">
                 @if (count($movie->comments))
                     @foreach ($movie->comments as $comment)
@@ -48,19 +48,19 @@
                           <form action="{{ route('comments.destroy', $comment->id) }}" method="post">
                               @csrf
                               @method('delete')
-                              <button type="submit" class="btn btn-link text-danger">Delete</button>
+                              <button type="submit" class="btn btn-link text-danger" class="btn btn-primary btn-sm">Delete</button>
                           </form>
                       @endauth
                     </li> 
                     @endforeach
                 @else
-                      Gausah mengkomentari hidup orang lain
+                      Tidak ada komentar
                 @endif
               </ul>
               <form action="{{ route('movies.comments.store', $movie->id) }}" method="POST">
                 @csrf
                 <input type="text" name="comment" class="form-control" placeholder="say something...">
-                <button type="submit" class="btn btn-primary mt-2 float-right">Comment</button>
+                <button type="submit" class="btn btn-primary mt-2 float-right">Komentar</button>
               </form>
               
         </div>
@@ -69,11 +69,11 @@
                 <form action="{{ route('movies.destroy', $movie->id) }}" method="POST">
                       @csrf
                       @method('delete')
-                      <button type="submit" class="btn btn-link float-right">Delete</button>
+                      <button type="submit" class="btn btn-link float-right" class="btn btn-primary btn-sm">Delete</button>
                 </form>
         </div>
         @endauth
-        <a href="/movies" class="btn btn-link float-right">kembali ke halaman movie</a>
+        <a href="/movies" class="btn btn-link float-right" class="btn btn-primary btn-sm">kembali ke halaman movie</a>
     </div>
 
     @auth
