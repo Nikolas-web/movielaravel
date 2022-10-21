@@ -19,6 +19,12 @@ class MovieController extends Controller
         return view('movies.index', compact('movies'));
     }
 
+    public function satu()
+    {
+        $movies = Movie::with('genre')->get();
+        return view('movies', ['movie' => $movies]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -39,6 +45,7 @@ class MovieController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'genre_id' => 'required',
             'image' => 'required',
             'rating_star' => 'required',
             'description' => 'required'

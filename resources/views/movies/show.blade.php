@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<a href="/movies" class="btn btn-primary mt-2 float-right">Back to all Movies</a>
     <div class="card my-5">
         <img src="{{ $movie->image }}" class="card-image-top" width="200">
         <div class="card-body">
@@ -10,6 +11,7 @@
               <i class="fas fa-star"></i>
               @endfor
         </div>
+        <strong>{{ $movie->genre_id }}</strong>
             <p>{{ $movie->description }}</p>
             
             <h3>Tokoh Cerita
@@ -29,7 +31,7 @@
                     <form action="{{ route('movie_cast_destroy', [$movie->id, $cast->id]) }}" method="post">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn btn-link text-danger" class="btn btn-primary btn-sm">Delete</button>
+                        <button type="submit" class="btn btn-danger mt-2 float-right">Delete Pemeran</button>
                     </form>
                 @endauth
               </li>
@@ -48,7 +50,7 @@
                           <form action="{{ route('comments.destroy', $comment->id) }}" method="post">
                               @csrf
                               @method('delete')
-                              <button type="submit" class="btn btn-link text-danger" class="btn btn-primary btn-sm">Delete</button>
+                              <button type="submit" class="btn btn-danger mt-2 float-right">Delete Komentar</button>
                           </form>
                       @endauth
                     </li> 
@@ -69,11 +71,11 @@
                 <form action="{{ route('movies.destroy', $movie->id) }}" method="POST">
                       @csrf
                       @method('delete')
-                      <button type="submit" class="btn btn-link float-right" class="btn btn-primary btn-sm">Delete</button>
+                      <button type="submit" class="btn btn-danger mt-2 float-right">Delete Movie</button>
                 </form>
         </div>
         @endauth
-        <a href="/movies" class="btn btn-link float-right" class="btn btn-primary btn-sm">kembali ke halaman movie</a>
+        
     </div>
 
     @auth

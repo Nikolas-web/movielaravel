@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="my-4 col-12 col-sm-1 col-md-5 mb-8">
+        <form action="" method="get">   
+            <div class="input-group mb-3">
+                <input type="text" class="form-control"  placeholder="nyari apa hayo..." name="nyari apa hayo...">
+                <button class="input-group-text btn btn-dark" >Search</button>
+            </div>
+        </form>
+    </div>
     <h1>All Movies <br>
         @auth
         <a href="{{ 'movies/create' }}" class="btn btn-primary btn-sm">Create New Movies</i></a> 
@@ -23,6 +31,7 @@
                 <i class="fas fa-star"></i>
                 @endfor                  
                 </div>
+                <strong>{{ $movie->genre_id }}</strong>
                 <p>{{ Str::limit($movie->description, 100) }}</p>
             </div>
         </div>
