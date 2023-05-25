@@ -31,7 +31,7 @@
                 <i class="fas fa-star"></i>
                 @endfor                  
                 </div>
-                <strong>{{ $movie->genre_id }}</strong>
+               
                 <p>{{ Str::limit($movie->description, 100) }}</p>
             </div>
         </div>

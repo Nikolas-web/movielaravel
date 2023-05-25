@@ -32,6 +32,7 @@
                         <textarea class="form-control" name="description" rows="10"></textarea>
                     </div>
                         <button type="submit" class="btn btn-primary mt-2 float-right">Submit</button>
+                        <button type="back" class="btn btn-primary mt-2 float-right">Back</button>
                     </form>      
     </div>    
     </div>
